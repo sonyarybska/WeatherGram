@@ -1,6 +1,8 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { PaperWrapper, Tab, Tabs } from "@common/ui";
 import { SetStateAction, SyntheticEvent, useState } from "react";
+import { LoaderCtxProvider } from "@common/ui/loaders/Loader/LoaderCtx";
+import { Stack } from "@mui/material";
 
 import { AllUsers, SavedUsers } from "./pages";
 
@@ -18,16 +20,21 @@ export const UsersFeature = () => {
   };
 
   return (
-    <PaperWrapper>
-      <Tabs value={tab} onChange={onChange}>
-        <Tab label="Users" />
-        <Tab label="Saved Users" />
-      </Tabs>
-      <Routes>
-        <Route path="/" element={<AllUsers />} />
-        <Route path="/saved" element={<SavedUsers />} />
-      </Routes>
-    </PaperWrapper>
+    <Stack sx={{ position: "relative", width: "100%" }}>
+      <LoaderCtxProvider>
+        <PaperWrapper>
+          <Tabs value={tab} onChange={onChange}>
+            <Tab label="Users" />
+            <Tab label="Saved Users" />
+          </Tabs>
+
+          <Routes>
+            <Route path="/" element={<AllUsers />} />
+            <Route path="/saved" element={<SavedUsers />} />
+          </Routes>
+        </PaperWrapper>
+      </LoaderCtxProvider>
+    </Stack>
   );
 };
 

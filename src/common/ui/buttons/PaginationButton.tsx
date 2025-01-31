@@ -1,6 +1,10 @@
 import { ButtonProps, Button } from "@mui/material";
 
-export const PaginationButton: React.FC<ButtonProps> = ({ ...props }) => {
+type Props = ButtonProps & {
+  visibility?: boolean;
+};
+
+export const PaginationButton: React.FC<Props> = ({ visibility = true, ...props }) => {
   return (
     <Button
       {...props}
@@ -16,6 +20,7 @@ export const PaginationButton: React.FC<ButtonProps> = ({ ...props }) => {
         ":hover": {
           backgroundColor: "#D3D3D3",
         },
+        visibility: visibility ? "visible" : "hidden",
       }}>
       Show More
     </Button>

@@ -52,18 +52,22 @@ const WeatherDialog: React.FC<Props> = ({
           <WeatherDetailItem>
             <FaTemperatureHalf size={40} />
             <Box>
-              <Typography variant="h6">L: {weather?.daily.temperature_2m_min}°C</Typography>
-              <Typography variant="h6">H: {weather?.daily.temperature_2m_max}°C</Typography>
+              <Typography sx={{ typography: { xs: "subtitle1", sm: "h6" } }}>
+                L: {weather?.daily.temperature_2m_min}°C
+              </Typography>
+              <Typography sx={{ typography: { xs: "subtitle1", sm: "h6" } }}>
+                H: {weather?.daily.temperature_2m_max}°C
+              </Typography>
             </Box>
           </WeatherDetailItem>
 
           <WeatherDetailItem>
             <CiDroplet size={40} />
             <Box>
-              <Typography variant="h6">
+              <Typography sx={{ typography: { xs: "subtitle1", sm: "h6" } }}>
                 Max: {weather?.daily.precipitation_probability_max}%
               </Typography>
-              <Typography variant="h6">
+              <Typography sx={{ typography: { xs: "subtitle1", sm: "h6" } }}>
                 Min: {weather?.daily.precipitation_probability_min}%
               </Typography>
             </Box>
@@ -74,7 +78,7 @@ const WeatherDialog: React.FC<Props> = ({
             <Stack>
               <Stack direction={"row"} alignItems={"center"} gap={1}>
                 <TbTriangle size={12} />
-                <Typography variant="subtitle1">
+                <Typography sx={{ typography: { xs: "subtitle1", sm: "h6" } }}>
                   {weather?.daily.sunrise
                     ? `${new Date(weather?.daily.sunrise).getHours()}:${new Date(
                         weather?.daily.sunrise
@@ -84,7 +88,7 @@ const WeatherDialog: React.FC<Props> = ({
               </Stack>
               <Stack direction={"row"} alignItems={"center"} gap={1}>
                 <TbTriangleInverted size={12} />
-                <Typography variant="subtitle1">
+                <Typography sx={{ typography: { xs: "subtitle1", sm: "h6" } }}>
                   {weather?.daily.sunrise
                     ? `${new Date(weather?.daily.sunset).getHours()}:${new Date(
                         weather?.daily.sunrise
